@@ -1,0 +1,11 @@
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.git
+.gitignore
+.env
+ml/models/artifacts
+ml/models/registry
+ml/data/features
+frontend/node_modules

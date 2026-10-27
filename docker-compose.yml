@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medguard-api
+    ports:
+      - "8000:8000"
+    environment:
+      MONGODB_URL: mongodb://mongodb:27017
+      MONGODB_DATABASE: medguard
+      ENVIRONMENT: production
+      DEBUG: "false"
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:8
+    container_name: medguard-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

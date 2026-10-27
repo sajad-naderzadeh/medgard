@@ -1,0 +1,43 @@
+name: MedGuard ML CI
+
+on:
+  push:
+    paths:
+      - "ml/**"
+      - "mlops/**"
+      - "tests/**"
+  pull_request:
+    paths:
+      - "ml/**"
+      - "mlops/**"
+      - "tests/**"
+
+jobs:
+  ml-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: Validate ML imports
+        env:
+          PYTHONPATH: backend:.
+        run: |
+          python -c "from ml.training.train import TrainingPipeline; from ml.evaluation.evaluate import ModelEvaluator; from ml.mlflow.tracking import MLflowTracker; print('ML CI IMPORTS OK')"
+
+      - name: Run ML tests
+        env:
+          PYTHONPATH: backend:.
+        run: |
+          pytest tests/unit tests/integration tests/e2e -v

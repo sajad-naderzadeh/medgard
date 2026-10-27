@@ -1,0 +1,15 @@
+{
+  "model_name": "cardiovascular_logistic_regression",
+  "algorithm": "LogisticRegression",
+  "dataset": "datasets/raw/heart_cleveland_upload.csv",
+  "dataset_rows": 297,
+  "target": "condition",
+  "random_state": 42,
+  "cross_validation_folds": 5,
+  "hyperparameters": {
+    "C": 0.1,
+    "class_weight": "balanced",
+    "solver": "liblinear"
+  },
+  "clinical_note": "Research prototype for clinical decision support. Not a diagnostic system."
+}
