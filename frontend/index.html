@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedGuard AI | Cardiovascular Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">✦</span> MedGuard <b>AI</b></a>
+        <p class="workspace">CLINICAL WORKSPACE</p>
+        <nav>
+          <a class="nav-link active" href="#overview">▦ <span>Overview</span></a>
+          <a class="nav-link" href="#risk">⌁ <span>Risk assessment</span></a>
+          <a class="nav-link" href="#patients">♙ <span>Patients</span></a>
+          <a class="nav-link" href="#alerts">△ <span>Clinical alerts</span></a>
+          <a class="nav-link" href="#reports">▤ <span>Reports</span></a>
+        </nav>
+        <div class="sidebar-foot"><span class="dot"></span> API connected<br /><small>Research environment</small></div>
+      </aside>
+      <section class="content">
+        <header class="topbar"><div><p class="eyebrow">CARDIOVASCULAR INTELLIGENCE</p><h1>Patient risk overview</h1></div><div class="user">DR <span>SA</span></div></header>
+        <section id="overview" class="hero"><div><span class="pill">MODEL v1.0</span><h2>Clinical insight, <em>made clear.</em></h2><p>Review cardiovascular risk indicators and generate an evidence-aware research assessment.</p></div><div class="hero-pulse"><span>♥</span><b>72</b><small>BPM</small><i></i></div></section>
+        <section class="stats"><article><span>ACTIVE PATIENTS</span><b>1,284</b><small>↑ 8.4% this month</small></article><article><span>ASSESSMENTS</span><b>248</b><small>Last 30 days</small></article><article><span>HIGH-RISK FLAGS</span><b class="warning">18</b><small>Needs review</small></article><article><span>MODEL STATUS</span><b class="success">Healthy</b><small>99.8% availability</small></article></section>
+        <section id="risk" class="grid">
+          <article class="panel input-panel"><div class="panel-title"><div><p class="eyebrow">NEW ASSESSMENT</p><h3>Patient inputs</h3></div><span class="step">01</span></div><form id="risk-form"><label>Age<input name="age" type="number" value="52" min="18" max="120" /></label><label>Biological sex<select name="sex"><option value="1">Male</option><option value="0">Female</option></select></label><label>Systolic BP <input name="trestbps" type="number" value="140" /></label><label>Cholesterol <input name="chol" type="number" value="220" /></label><label>Max heart rate <input name="thalach" type="number" value="150" /></label><label>Chest pain type <select name="cp"><option value="0">Typical angina</option><option value="1">Atypical angina</option></select></label><button type="submit">Assess cardiovascular risk <span>→</span></button></form></article>
+          <article class="panel result-panel"><div class="panel-title"><div><p class="eyebrow">MODEL OUTPUT</p><h3>Risk prediction</h3></div><span class="live"><i></i> LIVE</span></div><div class="gauge"><div class="gauge-inner"><small>10-year risk</small><b id="risk-score">78%</b><span id="risk-label">HIGH RISK</span></div></div><div class="result-copy"><b id="result-title">Clinical review recommended</b><p id="result-text">Elevated blood pressure and cholesterol are the leading contributors to this research estimate.</p></div><div class="factors"><div><span>Age</span><i><b style="width:82%"></b></i><em>0.32</em></div><div><span>Cholesterol</span><i><b style="width:65%"></b></i><em>0.24</em></div><div><span>Blood pressure</span><i><b style="width:52%"></b></i><em>0.18</em></div></div></article>
+          <article id="alerts" class="panel alerts"><div class="panel-title"><div><p class="eyebrow">SAFETY LAYER</p><h3>Clinical alerts</h3></div><span class="step">02</span></div><div class="alert high"><span>!</span><div><b>Elevated cardiovascular risk</b><p>Consider clinician review before any action.</p></div></div><div class="alert"><span>✓</span><div><b>Safety disclaimer active</b><p>Decision support only. Not a diagnosis.</p></div></div><h4>Explainability factors</h4><div class="explain"><span>Age <b>+0.32</b></span><span>Cholesterol <b>+0.24</b></span><span>Exercise angina <b>+0.12</b></span><span>Heart rate <b class="blue">−0.08</b></span></div></article>
+        </section>
+        <footer>MedGuard AI is a research prototype and not a diagnostic system. <a href="#">Review model card</a></footer>
+      </section>
+    </main><script src="app.js"></script>
+  </body>
+</html>
