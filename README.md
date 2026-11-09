@@ -11,6 +11,10 @@ docker compose up --build
 
 The API is available at `http://localhost:8000`; interactive documentation is at `/docs`.
 
+## Dashboard
+
+The static dashboard is in `frontend/`. For a local preview run `python -m http.server 3000 --directory frontend`, then open `http://localhost:3000`. It works in demo mode without credentials; when `medguard_access_token` is set in browser local storage it calls the protected cardiovascular prediction endpoint at `http://localhost:8000/api/v1`.
+
 ## What is implemented
 
 - JWT authentication and role-protected routes
